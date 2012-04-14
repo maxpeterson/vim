@@ -43,3 +43,6 @@
 [submodule "bundlegit"]
 	path = bundlegit
 	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
