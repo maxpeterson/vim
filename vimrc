@@ -8,6 +8,7 @@ endif
 
 " Make vim behave in a less vi compatible way
 set nocompatible
+"behave mswin
 
 set expandtab
 set shiftwidth=4 " number of space characters inserted for indentation
@@ -39,6 +40,7 @@ autocmd FileType html set ft=htmldjango.html " For SnipMate
 " Basic editing from http://sontek.net/turning-vim-into-a-modern-python-ide#id2
 
 " Code folding
+" Then you will be able to be inside a method and type 'za' to open and close a fold
 set foldmethod=indent
 set foldlevel=99
 
@@ -87,6 +89,9 @@ set completeopt=menuone,longest,preview
 " By default, command-t is bound to <leader>t. 
 " Only through opened buffers  using <leader>b.
 
+" Bind a shortcut key for opening nerd tree
+map <leader>n :NERDTreeToggle<CR>
+
 " Refactoring and Go to definition
 " bind <leader>j to jump to the definition of the module under the cursor
 map <leader>j :RopeGotoDefinition<CR>
@@ -96,7 +101,14 @@ map <leader>r :RopeRename<CR>
 nmap <leader>a <Esc>:Ack!
 
 " Integration with Git
-" Add to %{fugitive#statusline()} to statusline
+" Gblame: This allows you to view a line by line comparison of who the last person to touch that line of code is.
+" Gwrite: This will stage your file for commit, basically doing git add <filename>
+" Gread: This will basically run a git checkout <filename>
+" Gcommit: This will just run git commit. Since its in a vim buffer, you can use keyword completion (Ctrl-N), 
+" like test_all<Ctrl-N> to find the method name in your buffer and complete it for the commit message. 
+" You can also use + and - on the filenames in the message to stage/unstage them for the commit.
+" 
+set statusline=%{fugitive#statusline()} 
 
 " Test Integration
 " 
@@ -114,22 +126,6 @@ nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
-
-" Virtualenv
-"
-"" Add the virtualenv's site-packages to vim path
-"py << EOF
-"import os.path
-"import sys
-"import vim
-"if 'VIRTUAL_ENV' in os.environ:
-"    project_base_dir = os.environ['VIRTUAL_ENV']
-"    sys.path.insert(0, project_base_dir)
-"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"    execfile(activate_this, dict(__file__=activate_this))
-"EOF
-" 
-
 
 " json highlighting and formatting 
 au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
@@ -161,4 +157,41 @@ EOF
     endif
 endif
 
+" Virtualenv
+"
+"" Add the virtualenv's site-packages to vim path
+
+if has('python')
+
+python << EOF
+import os.path
+import sys
+import vim
+
+try:
+    settings_module = os.environ['DJANGO_SETTINGS_MODULE']
+    if not settings_module: # If it's set but is an empty string.
+        raise KeyError
+except KeyError:
+    import glob
+    if 'VIRTUAL_ENV' in os.environ:
+        settings_root = os.path.expandvars('$VIRTUAL_ENV')
+    else:
+        settings_root = '.'
+
+    try:
+        settings_path = glob.glob(os.path.join(settings_root, '*/settings.py'))[0]
+    except IndexError:
+        pass
+    else:
+        os.environ['DJANGO_SETTINGS_MODULE'] = '%s.settings' % os.path.basename(os.path.dirname(settings_path))
+
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+ 
+endif
 
