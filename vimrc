@@ -6,6 +6,9 @@ if has("gui_running")
     set guioptions-=T
 endif
 
+" Make vim behave in a less vi compatible way
+set nocompatible
+
 set expandtab
 set shiftwidth=4 " number of space characters inserted for indentation
 set softtabstop=4
@@ -24,6 +27,10 @@ set vb
 " put (~) backup files in /tmp. 
 set backupdir=./_backup,/tmp,.
 
+let $PYTHONS='~/.vim/scripts/python.vim'
+au FileType python source $PYTHONS
+let python_highlight_all=1
+let python_slow_sync=1
 
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
