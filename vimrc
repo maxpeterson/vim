@@ -1,4 +1,5 @@
 filetype off
+let mapleader = ","
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -28,6 +29,10 @@ set vb
 " put (~) backup files in /tmp. 
 set backupdir=./_backup,/tmp,.
 
+" Add 80 characters soft limit.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 let $PYTHONS='~/.vim/scripts/python.vim'
 au FileType python source $PYTHONS
 let python_highlight_all=1
@@ -35,7 +40,6 @@ let python_slow_sync=1
 
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
-
 
 " Basic editing from http://sontek.net/turning-vim-into-a-modern-python-ide#id2
 
@@ -77,6 +81,10 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
 set completeopt=menuone,longest,preview
+
+" json highlighting and formatting 
+au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
+
 
 " Buffers
 " Open files with :e <filename> to place in a buffer. 
@@ -146,7 +154,7 @@ except KeyError:
     import glob
     try:
         settings_path = glob.glob(os.path.expandvars('$VIRTUAL_ENV/*/settings.py'))[0]
-    except KeyError:
+    except IndexError:
         pass
     else:
         os.environ['DJANGO_SETTINGS_MODULE'] = '%s.settings' % os.path.basename(os.path.dirname(settings_path))
@@ -174,11 +182,7 @@ try:
         raise KeyError
 except KeyError:
     import glob
-    if 'VIRTUAL_ENV' in os.environ:
-        settings_root = os.path.expandvars('$VIRTUAL_ENV')
-    else:
-        settings_root = '.'
-
+    settings_root = '.'
     try:
         settings_path = glob.glob(os.path.join(settings_root, '*/settings.py'))[0]
     except IndexError:
