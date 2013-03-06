@@ -17,6 +17,8 @@ set softtabstop=4
 set tabstop=4 "number of space characters that will be inserted when the tab key is pressed 
 colorscheme torte
 
+set incsearch " incremental search (as you type)
+
 syntax on
 filetype on
 filetype plugin indent on
