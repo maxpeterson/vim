@@ -18,6 +18,7 @@ set tabstop=4 "number of space characters that will be inserted when the tab key
 colorscheme torte
 
 set incsearch " incremental search (as you type)
+set hlsearch " highlight search
 
 syntax on
 filetype on
