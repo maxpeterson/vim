@@ -1,3 +1,4 @@
+call pathogen#infect()
 filetype off
 let mapleader = ","
 call pathogen#runtime_append_all_bundles()
@@ -67,12 +68,8 @@ map <leader>td <Plug>TaskList
 " Revision History 
 map <leader>g :GundoToggle<CR>
 
-" let pyflakes use the quickfix window
-let g:pyflakes_use_quickfix = 0
-
-" pep8
-" Use :cn / :cp to go to next / previous error
-let g:pep8_map='<leader>8'
+" change the max line length for PEP8
+let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=99"
 
 " Tab complete and documentation
 " Hit <leader>pw when our cursor is on a module to open help in a new window
