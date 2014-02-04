@@ -32,10 +32,6 @@ set vb
 " put (~) backup files in /tmp. 
 set backupdir=./_backup,/tmp,.
 
-" Add 80 characters soft limit.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 let $PYTHONS='~/.vim/scripts/python.vim'
 au FileType python source $PYTHONS
 let python_highlight_all=1
@@ -88,6 +84,8 @@ set completeopt=menuone,longest,preview
 " json highlighting and formatting 
 au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
 
+" markdown highlighting for files with extension md.
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Buffers
 " Open files with :e <filename> to place in a buffer. 
@@ -202,3 +200,6 @@ EOF
  
 endif
 
+" Add 80 characters soft limit.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
