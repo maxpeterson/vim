@@ -84,6 +84,10 @@ au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
 " markdown highlighting for files with extension md.
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" preview markdown in chrome - requires a markdown plugin such as
+" https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl
+autocmd BufEnter *.md exe 'noremap <leader>p :!open -a "Google Chrome.app" %:p<CR>'
+
 " Buffers
 " Open files with :e <filename> to place in a buffer. 
 " List buffers with :buffers.
