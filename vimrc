@@ -69,7 +69,7 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 
 " change the max line length for PEP8
-let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=99"
+let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=90"
 
 " Tab complete and documentation
 " Hit <leader>pw when our cursor is on a module to open help in a new window
