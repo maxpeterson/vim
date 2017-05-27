@@ -30,6 +30,9 @@ set spell
 " visual bell
 set vb
 
+set number
+set relativenumber
+
 " put (~) backup files in /tmp. 
 set backupdir=./_backup,/tmp,.
 
@@ -70,6 +73,10 @@ map <leader>g :GundoToggle<CR>
 
 " change the max line length for PEP8
 let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=90"
+
+" use eslint for jav
+let g:syntastic_javascript_checkers = ['eslint']
+
 
 " Tab complete and documentation
 " Hit <leader>pw when our cursor is on a module to open help in a new window
