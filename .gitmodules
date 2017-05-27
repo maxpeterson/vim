@@ -67,3 +67,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic
+[submodule "bundle/SQLUtilities"]
+	path = bundle/SQLUtilities
+	url = https://github.com/vim-scripts/SQLUtilities
