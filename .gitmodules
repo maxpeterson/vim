@@ -73,3 +73,6 @@
 [submodule "bundle/Align"]
 	path = bundle/Align
 	url = https://github.com/vim-scripts/Align
+[submodule "bundle/argwrap"]
+	path = bundle/argwrap
+	url = https://github.com/FooSoft/vim-argwrap.git

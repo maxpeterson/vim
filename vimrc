@@ -211,3 +211,7 @@ endif
 " Add 80 characters soft limit.
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+" Mapping for ArgWrap
+let g:argwrap_tail_comma = 1
+nnoremap <silent> <leader>w :ArgWrap<CR>
