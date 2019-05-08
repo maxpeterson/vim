@@ -71,6 +71,9 @@ map <leader>td <Plug>TaskList
 " Revision History 
 map <leader>g :GundoToggle<CR>
 
+
+let g:syntastic_python_checkers = ['flake8']
+
 " change the max line length for PEP8
 let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=90"
 
@@ -106,6 +109,9 @@ autocmd BufEnter *.md exe 'noremap <leader>p :!open -a "Google Chrome.app" %:p<C
 " By default, command-t is bound to <leader>t. 
 " Only through opened buffers  using <leader>b.
 
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.dcm
+set wildignore=*/bower_components/**,*/node_modules/**
+
 " Bind a shortcut key for opening nerd tree
 map <leader>n :NERDTreeToggle<CR>
 
@@ -116,6 +122,10 @@ map <leader>r :RopeRename<CR>
 
 " Searching (with Ack)
 nmap <leader>a <Esc>:Ack!
+
+" Format (pretty print) json
+" https://pascalprecht.github.io/posts/pretty-print-json-in-vim/
+map <leader>fj :%!python -m json.tool
 
 " Integration with Git
 " Gblame: This allows you to view a line by line comparison of who the last person to touch that line of code is.
@@ -143,9 +153,6 @@ nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
-
-" json highlighting and formatting 
-au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
 
 " export DJANGO_SETTINGS_MODULE=project.settings
 if has('python')
@@ -215,3 +222,8 @@ match OverLength /\%81v.\+/
 " Mapping for ArgWrap
 let g:argwrap_tail_comma = 1
 nnoremap <silent> <leader>w :ArgWrap<CR>
+
+" SQLUtil
+let g:sqlutil_align_where = 0
+let g:sqlutil_align_keyword_right = 0
+let g:sqlutil_wrap_expressions = 1
