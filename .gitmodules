@@ -76,3 +76,6 @@
 [submodule "bundle/Colorizer"]
 	path = bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
+[submodule "bundle/dart-vim-plugin"]
+	path = bundle/dart-vim-plugin
+	url = https://github.com/dart-lang/dart-vim-plugin
