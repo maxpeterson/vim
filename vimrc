@@ -178,33 +178,6 @@ nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
-" export DJANGO_SETTINGS_MODULE=project.settings
-if has('python')
-    "setup the python path based on VIRTUAL_ENV (so omnicomplete can find files)
-    if filereadable($VIRTUAL_ENV . '/bin/activate_this.py')
-        python << EOF
-import os
-
-# Try to guess DJANGO_SETTINGS_MODULE if it is not set
-try:
-    settings_module = os.environ['DJANGO_SETTINGS_MODULE']
-    if not settings_module: # If it's set but is an empty string.
-        raise KeyError
-except KeyError:
-    import glob
-    try:
-        settings_path = glob.glob(os.path.expandvars('$VIRTUAL_ENV/*/settings.py'))[0]
-    except IndexError:
-        pass
-    else:
-        os.environ['DJANGO_SETTINGS_MODULE'] = '%s.settings' % os.path.basename(os.path.dirname(settings_path))
-
-activate_this = os.path.expandvars('$VIRTUAL_ENV/bin/activate_this.py')
-execfile(activate_this, dict(__file__=activate_this))
-EOF
-    endif
-endif
-
 " Virtualenv
 "
 "" Add the virtualenv's site-packages to vim path
@@ -234,7 +207,8 @@ if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
+    if os.path.isfile(activate_this):
+        execfile(activate_this, dict(__file__=activate_this))
 EOF
  
 endif
