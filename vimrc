@@ -1,8 +1,32 @@
-call pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-scripts/Align'
+Plug 'chrisbra/Colorizer'
+Plug 'vim-scripts/SQLUtilities'
+Plug 'mileszs/ack.vim'
+Plug 'FooSoft/vim-argwrap'
+Plug 'wincent/Command-T'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'tpope/vim-git'
+Plug 'sjl/gundo.vim'
+Plug 'reinh/vim-makegreen'
+Plug 'vim-scripts/minibufexpl.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/The-NERD-tree'
+Plug 'alfredodeza/pytest.vim'
+Plug 'fs111/pydoc.vim'
+Plug 'msanders/snipmate.vim'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-surround'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'sukima/xmledit'
+Plug 'vim-scripts/TaskList.vim'
+
+call plug#end()
+
 filetype off
 let mapleader = ","
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 if has("gui_running")
     set guioptions-=T
