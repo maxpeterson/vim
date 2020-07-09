@@ -22,6 +22,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/TaskList.vim'
 Plug 'sukima/xmledit'
 Plug 'vim-scripts/TaskList.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
