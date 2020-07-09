@@ -1,57 +1,3 @@
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundle/surround"]
-	path = bundle/surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/git"]
-	path = bundle/git
-	url = https://github.com/tpope/vim-git.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/sontek/minibufexpl.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T.git
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
-[submodule "bundle/pydoc"]
-	path = bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
-[submodule "bundle/py.test"]
-	path = bundle/py.test
-	url = https://github.com/alfredodeza/pytest.vim.git
-[submodule "bundle/makegreen"]
-	path = bundle/makegreen
-	url = https://github.com/reinh/vim-makegreen
-[submodule "bundlegit"]
-	path = bundlegit
-	url = https://github.com/vim-scripts/TaskList.vim.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/tasklist"]
-	path = bundle/tasklist
-	url = https://github.com/vim-scripts/TaskList.vim.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule "bundle/xmledit"]
-	path = bundle/xmledit
-	url = https://github.com/sukima/xmledit.git
-[submodule "bundle/handlebars"]
-	path = bundle/handlebars
-	url = git://github.com/nono/vim-handlebars.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -61,21 +7,3 @@
 [submodule "bundle/vim-forcedotcom"]
 	path = bundle/vim-forcedotcom
 	url = git://github.com/ejholmes/vim-forcedotcom.git
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic
-[submodule "bundle/SQLUtilities"]
-	path = bundle/SQLUtilities
-	url = https://github.com/vim-scripts/SQLUtilities
-[submodule "bundle/Align"]
-	path = bundle/Align
-	url = https://github.com/vim-scripts/Align
-[submodule "bundle/argwrap"]
-	path = bundle/argwrap
-	url = https://github.com/FooSoft/vim-argwrap.git
-[submodule "bundle/Colorizer"]
-	path = bundle/Colorizer
-	url = https://github.com/chrisbra/Colorizer.git
-[submodule "bundle/dart-vim-plugin"]
-	path = bundle/dart-vim-plugin
-	url = https://github.com/dart-lang/dart-vim-plugin
