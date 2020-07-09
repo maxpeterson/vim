@@ -225,3 +225,10 @@ nnoremap <silent> <leader>w :ArgWrap<CR>
 let g:sqlutil_align_where = 0
 let g:sqlutil_align_keyword_right = 0
 let g:sqlutil_wrap_expressions = 1
+
+" Colorizer
+let g:colorizer_auto_filetype='css,html,json'
+
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+
