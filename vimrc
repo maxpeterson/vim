@@ -6,8 +6,8 @@ Plug 'vim-scripts/SQLUtilities'
 Plug 'mileszs/ack.vim'
 Plug 'FooSoft/vim-argwrap'
 Plug 'wincent/Command-T'
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
 Plug 'sjl/gundo.vim'
 Plug 'reinh/vim-makegreen'
 Plug 'vim-scripts/minibufexpl.vim'
@@ -23,8 +23,19 @@ Plug 'vim-scripts/TaskList.vim'
 Plug 'sukima/xmledit'
 Plug 'vim-scripts/TaskList.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'AndrewRadev/linediff.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
+Plug 'pbrisbin/vim-mkdir'
+
 
 call plug#end()
+
+let g:coc_global_extensions = [ 'coc-flutter', 'coc-python', 'coc-tsserver' ]
 
 filetype off
 let mapleader = ","
@@ -233,3 +244,18 @@ let g:colorizer_auto_filetype='css,html,json'
 let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 
+
+" Show autocomplete when Tab is pressed
+"inoremap <silent><expr> <Tab> coc#refresh()
+
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
