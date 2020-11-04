@@ -31,6 +31,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'dense-analysis/ale'
 
 
 call plug#end()
@@ -259,3 +260,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+
+" ale typescript linting
+let g:ale_fixers = {
+\   'typescript': ['prettier', 'eslint'],
+\}
+
+let g:ale_linters = {}
+let g:ale_linters.typescript = ['eslint', 'tsserver']
+
+let g:ale_typescript_prettier_use_local_config = 1
+
+let g:ale_fix_on_save = 0
+
+let g:ale_linters_explicit = 1
