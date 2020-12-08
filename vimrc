@@ -1,42 +1,7 @@
-call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/Align'
-Plug 'chrisbra/Colorizer'
-Plug 'vim-scripts/SQLUtilities'
-Plug 'mileszs/ack.vim'
-Plug 'FooSoft/vim-argwrap'
-Plug 'wincent/Command-T'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-fugitive'
-Plug 'sjl/gundo.vim'
-Plug 'reinh/vim-makegreen'
-Plug 'vim-scripts/minibufexpl.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/The-NERD-tree'
-Plug 'alfredodeza/pytest.vim'
-Plug 'fs111/pydoc.vim'
-Plug 'msanders/snipmate.vim'
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-scripts/TaskList.vim'
-Plug 'sukima/xmledit'
-Plug 'vim-scripts/TaskList.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'AndrewRadev/linediff.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'jparise/vim-graphql'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'dense-analysis/ale'
+source ~/vim/plugins.vim
 
-
-call plug#end()
-
-let g:coc_global_extensions = [ 'coc-flutter', 'coc-python', 'coc-tsserver' ]
+let g:coc_global_extensions = [ 'coc-flutter', 'coc-python', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-css' ]
 
 filetype off
 let mapleader = ","
@@ -50,9 +15,123 @@ set nocompatible
 "behave mswin
 
 set expandtab
-set shiftwidth=4 " number of space characters inserted for indentation
-set softtabstop=4
-set tabstop=4 "number of space characters that will be inserted when the tab key is pressed 
+set shiftwidth=2 " number of space characters inserted for indentation
+set softtabstop=2
+set tabstop=2 "number of space characters that will be inserted when the tab key is pressed
+
+" Warn before reloading
+set noautoread
+au FocusGained * :checktime
+
+" Sho spaces as dots `.`
+"set list
+
+"source ~/vim/denite.vim
+source ~/vim/coc.vim
+source ~/vim/NeoSnippet.vim
+source ~/vim/NERDTree.vim
+source ~/vim/airline.vim
+
+" === echodoc === "
+" Enable echodoc on startup
+let g:echodoc#enable_at_startup = 1
+
+" === vim-javascript === "
+" Enable syntax highlighting for JSDoc
+let g:javascript_plugin_jsdoc = 1
+
+" === vim-jsx === "
+" Highlight jsx syntax even in non .jsx files
+let g:jsx_ext_required = 0
+
+" === javascript-libraries-syntax === "
+let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
+
+" === Signify === "
+let g:signify_sign_delete = '-'
+
+" NeoSnippet
+let g:neosnippet#enable_snipmate_compatibility=1
+
+" ============================================================================ "
+" ===                                UI                                    === "
+" ============================================================================ "
+
+" Enable true color support
+set termguicolors
+
+" Vim airline theme
+"let g:airline_theme='space'
+
+" Change vertical split character to be a space (essentially hide it)
+set fillchars+=vert:.
+
+" Set preview window to appear at bottom
+set splitbelow
+
+" Don't dispay mode in command line (airilne already shows it)
+set noshowmode
+
+" Set floating window to be slightly transparent
+"set winbl=10
+
+
+" === Nerdtree shorcuts === "
+"  <leader>n - Toggle NERDTree on/off
+"  <leader>f - Opens current file location in NERDTree
+nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+
+"   <Space> - PageDown
+"   -       - PageUp
+noremap <Space> <PageDown>
+noremap - <PageUp>
+
+" Quick window switching
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" === coc.nvim === "
+"   <leader>ac    - Remap keys for applying codeAction to the current line.
+"   <leader>qf    - Apply AutoFix to problem on the current line."   <leader>dd    - Jump to definition of current symbol
+"   <leader>dr    - Jump to references of current symbol
+"   <leader>dj    - Jump to implementation of current symbol
+"   <leader>ds    - Fuzzy search current project symbols
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
+nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
+
+" === vim-better-whitespace === "
+"   <leader>y - Automatically remove trailing whitespace
+nmap <leader>y :StripWhitespace<CR>
+
+" === Search shorcuts === "
+"   <leader>h - Find and replace
+"   <leader>/ - Claer highlighted search terms while preserving history
+map <leader>h :%s///<left><left>
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+" === Easy-motion shortcuts ==="
+"   <leader>w - Easy-motion highlights first word letters bi-directionally
+map <leader>w <Plug>(easymotion-bd-w)
+
+" Allows you to save files you opened without write permissions via sudo
+cmap w!! w !sudo tee %
+
+" === vim-jsdoc shortcuts ==="
+" Generate jsdoc for function under cursor
+nmap <leader>z :JsDoc<CR>
+
+" Delete current visual selection and dump in black hole buffer before pasting
+" Used when you want to paste over something without it getting copied to
+" Vim's default buffer
+vnoremap <leader>p "_dP
+
 colorscheme torte
 
 set incsearch " incremental search (as you type)
@@ -70,8 +149,13 @@ set vb
 set number
 set relativenumber
 
-" put (~) backup files in /tmp. 
+" put (~) backup files in /tmp.
 set backupdir=./_backup,/tmp,.
+
+
+
+
+" Python
 
 let $PYTHONS='~/.vim/scripts/python.vim'
 au FileType python source $PYTHONS
@@ -115,7 +199,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = "--ignore=E128,E124 --max-line-length=90"
 
 " use eslint for jav
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 
 
 " Tab complete and documentation
@@ -149,13 +233,13 @@ autocmd BufEnter *.md exe 'noremap <leader>p :!open -a "Google Chrome.app" %:p<C
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.dcm
 set wildignore=*/bower_components/**,*/node_modules/**
 
-" Bind a shortcut key for opening nerd tree
-map <leader>n :NERDTreeToggle<CR>
+"" Bind a shortcut key for opening nerd tree
+"map <leader>n :NERDTreeToggle<CR>
 
-" Refactoring and Go to definition
-" bind <leader>j to jump to the definition of the module under the cursor
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+"" Refactoring and Go to definition
+"" bind <leader>j to jump to the definition of the module under the cursor
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>r :RopeRename<CR>
 
 " Searching (with Ack)
 nmap <leader>a <Esc>:Ack!
@@ -172,7 +256,7 @@ map <leader>fj :%!python -m json.tool
 " like test_all<Ctrl-N> to find the method name in your buffer and complete it for the commit message. 
 " You can also use + and - on the filenames in the message to stage/unstage them for the commit.
 " 
-set statusline=%{fugitive#statusline()} 
+"set statusline=%{fugitive#statusline()} 
 
 " Test Integration
 " 
@@ -223,7 +307,7 @@ if 'VIRTUAL_ENV' in os.environ:
     if os.path.isfile(activate_this):
         execfile(activate_this, dict(__file__=activate_this))
 EOF
- 
+
 endif
 
 " Add 80 characters soft limit.
@@ -250,28 +334,30 @@ let g:dart_format_on_save = 1
 "inoremap <silent><expr> <Tab> coc#refresh()
 
 
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+"" Remap keys for applying codeAction to the current line.
+"nmap <leader>ac  <Plug>(coc-codeaction)
+"" Apply AutoFix to problem on the current line.
+"nmap <leader>qf  <Plug>(coc-fix-current)
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"" GoTo code navigation.
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 
 " ale typescript linting
-let g:ale_fixers = {
-\   'typescript': ['prettier', 'eslint'],
-\}
+"let g:ale_fixers = {
+"\   'typescript': ['prettier', 'eslint'],
+"\}
 
-let g:ale_linters = {}
-let g:ale_linters.typescript = ['eslint', 'tsserver']
+"let g:ale_linters = {}
+"let g:ale_linters.typescript = ['eslint', 'tsserver']
 
-let g:ale_typescript_prettier_use_local_config = 1
+"let g:ale_typescript_prettier_use_local_config = 1
 
-let g:ale_fix_on_save = 0
+"let g:ale_fix_on_save = 0
 
-let g:ale_linters_explicit = 1
+"let g:ale_linters_explicit = 1
+
+"au FileType typescript set omnifunc=ale#completion#OmniFunc
