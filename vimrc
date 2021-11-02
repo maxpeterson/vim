@@ -1,4 +1,3 @@
-
 source ~/vim/plugins.vim
 
 let g:coc_global_extensions = [ 'coc-flutter', 'coc-python', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-css' ]
@@ -212,6 +211,9 @@ set completeopt=menuone,longest,preview
 " json highlighting and formatting 
 au! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax 
 
+" Jenkinsfile highlighting and formatting
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
 " markdown highlighting for files with extension md.
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -361,3 +363,13 @@ let g:dart_format_on_save = 1
 "let g:ale_linters_explicit = 1
 
 "au FileType typescript set omnifunc=ale#completion#OmniFunc
+
+" Scroll forwards backwards
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+inoremap <nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
+inoremap <nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
+
+
+" vimspector
+"let g:vimspector_enable_mappings = 'HUMAN'

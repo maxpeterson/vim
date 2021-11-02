@@ -90,6 +90,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Debug
+"Plug 'puremourning/vimspector'
+
+Plug 'eliba2/vim-node-inspect'
+
 
 "https://medium.com/swlh/ultimate-vim-typescript-setup-35b5ac5c8c4e
 "
