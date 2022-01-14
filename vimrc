@@ -103,7 +103,13 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>df <Plug>(coc-float-jump)
+nmap <silent> <leader>dh <Plug>(coc-float-hide)
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
+
+" FLoat bg / fg colors
+highlight CocFloating guibg=DarkMagenta
+highlight CocFloating guibg=DarkMagenta
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
