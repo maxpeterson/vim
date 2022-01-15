@@ -324,6 +324,7 @@ match OverLength /\%81v.\+/
 
 " Mapping for ArgWrap
 let g:argwrap_tail_comma = 1
+let g:argwrap_padded_braces = '{'
 nnoremap <silent> <leader>w :ArgWrap<CR>
 
 " SQLUtil
