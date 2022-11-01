@@ -13,7 +13,6 @@ Plug 'sjl/gundo.vim'
 Plug 'reinh/vim-makegreen'
 Plug 'vim-scripts/minibufexpl.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/The-NERD-tree'
 Plug 'alfredodeza/pytest.vim'
 Plug 'fs111/pydoc.vim'
 "Plug 'msanders/snipmate.vim'
@@ -79,8 +78,6 @@ Plug 'othree/yajs.vim'
 
 " === UI === "
 "
-" File explorer
-Plug 'scrooloose/nerdtree'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
@@ -88,7 +85,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Debug
 "Plug 'puremourning/vimspector'
@@ -103,5 +99,14 @@ Plug 'eliba2/vim-node-inspect'
 "Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 "Plug 'jparise/vim-graphql'        " GraphQL syntax
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'airblade/vim-rooter'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 call plug#end()

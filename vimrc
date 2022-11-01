@@ -13,6 +13,11 @@ endif
 set nocompatible
 "behave mswin
 
+" vim-ctrlspace
+set hidden
+set encoding=utf-8
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+
 set expandtab
 set shiftwidth=2 " number of space characters inserted for indentation
 set softtabstop=2
@@ -28,7 +33,6 @@ au FocusGained * :checktime
 "source ~/vim/denite.vim
 source ~/vim/coc.vim
 source ~/vim/NeoSnippet.vim
-source ~/vim/NERDTree.vim
 source ~/vim/airline.vim
 
 " === echodoc === "
@@ -73,13 +77,6 @@ set noshowmode
 
 " Set floating window to be slightly transparent
 "set winbl=10
-
-
-" === Nerdtree shorcuts === "
-"  <leader>n - Toggle NERDTree on/off
-"  <leader>f - Opens current file location in NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
 
 "   <Space> - PageDown
 "   -       - PageUp
@@ -240,14 +237,6 @@ autocmd BufEnter *.md exe 'noremap <leader>p :!open -a "Google Chrome.app" %:p<C
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.dcm
 set wildignore=*/bower_components/**,*/node_modules/**
-
-"" Bind a shortcut key for opening nerd tree
-"map <leader>n :NERDTreeToggle<CR>
-
-"" Refactoring and Go to definition
-"" bind <leader>j to jump to the definition of the module under the cursor
-"map <leader>j :RopeGotoDefinition<CR>
-"map <leader>r :RopeRename<CR>
 
 " Searching (with Ack)
 nmap <leader>a <Esc>:Ack!
