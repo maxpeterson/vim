@@ -8,6 +8,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'wincent/Command-T'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
 Plug 'sjl/gundo.vim'
 Plug 'reinh/vim-makegreen'
@@ -100,6 +101,7 @@ Plug 'eliba2/vim-node-inspect'
 "Plug 'jparise/vim-graphql'        " GraphQL syntax
 
 " Telescope and related plugins
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -109,6 +111,16 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'airblade/vim-rooter'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+
+" Guthub
+Plug 'pwntester/octo.nvim'
+
+" Snippets
+" <Leader>KK
+" <Leader>KB
+" <Leader>KR
+" <Leader>KC
+Plug 'dbeniamine/cheat.sh-vim'
 
 " Scope buffers to tabs
 Plug 'tiagovla/scope.nvim', {'branch': 'main'}
