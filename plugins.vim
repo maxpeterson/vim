@@ -99,14 +99,21 @@ Plug 'eliba2/vim-node-inspect'
 "Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 "Plug 'jparise/vim-graphql'        " GraphQL syntax
 
+" Telescope and related plugins
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'airblade/vim-rooter'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+
+" Scope buffers to tabs
+Plug 'tiagovla/scope.nvim', {'branch': 'main'}
+
+" Tabline config
+Plug 'gcmt/taboo.vim'
 
 call plug#end()

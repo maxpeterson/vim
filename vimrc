@@ -366,6 +366,23 @@ inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(
 inoremap <nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
 inoremap <nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
 
+" tabline
+
+if has('nvim')
+    " Always show the tabline
+    set showtabline=2
+endif
+
+" tab shortcuts
+nnoremap <leader>ta <cmd>tabnew<cr>
+nnoremap <leader>tc <cmd>tabclose<cr>
+nnoremap <leader>to <cmd>tabonly<cr>
+nnoremap <leader>tn <cmd>tabn<cr>
+nnoremap <leader>tp <cmd>tabp<cr>
+nnoremap <leader>tmp <cmd>-tabmove<cr>
+nnoremap <leader>tmn <cmd>+tabmove<cr>
+
+let g:taboo_tab_format = ' %N:%P '
 
 " vimspector
 "let g:vimspector_enable_mappings = 'HUMAN'
