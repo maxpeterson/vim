@@ -9,7 +9,7 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sleuth'
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
 Plug 'reinh/vim-makegreen'
 Plug 'vim-scripts/minibufexpl.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -38,7 +38,12 @@ Plug 'rstacruz/vim-closer'
 Plug 'easymotion/vim-easymotion'
 
 " Intellisense Engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/which-key.nvim', {'branch': 'main'}
 
 " Denite - Fuzzy finding, buffer management
 "Plug 'Shougo/denite.nvim'
