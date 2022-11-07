@@ -31,7 +31,6 @@ au FocusGained * :checktime
 "set list
 
 "source ~/vim/denite.vim
-source ~/vim/coc.vim
 source ~/vim/NeoSnippet.vim
 source ~/vim/airline.vim
 
