@@ -231,10 +231,6 @@ autocmd BufEnter *.md exe 'noremap <leader>p :!open -a "Google Chrome.app" %:p<C
 " You can also use its name to match, so you can type :b mod<tab> to autocomplete opening the models.py buffer. 
 " To close a buffer you use :bd or :bw.
 
-" Fuzzy Text File Search with command-t
-" By default, command-t is bound to <leader>t. 
-" Only through opened buffers  using <leader>b.
-
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,*.dcm
 set wildignore=*/bower_components/**,*/node_modules/**
 
